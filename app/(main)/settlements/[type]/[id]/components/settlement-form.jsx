@@ -153,7 +153,7 @@ export default function SettlementForm({ entityType, entityData, onSuccess }) {
                 <span className="font-medium">{otherUser.name}</span> owes you
               </p>
               <span className="text-xl font-bold text-green-600">
-                ${netBalance.toFixed(2)}
+                Rs.{netBalance.toFixed(2)}
               </span>
             </div>
           ) : (
@@ -162,7 +162,7 @@ export default function SettlementForm({ entityType, entityData, onSuccess }) {
                 You owe <span className="font-medium">{otherUser.name}</span>
               </p>
               <span className="text-xl font-bold text-red-600">
-                ${Math.abs(netBalance).toFixed(2)}
+                Rs.{Math.abs(netBalance).toFixed(2)}
               </span>
             </div>
           )}
@@ -216,14 +216,14 @@ export default function SettlementForm({ entityType, entityData, onSuccess }) {
         <div className="space-y-2">
           <Label htmlFor="amount">Amount</Label>
           <div className="relative">
-            <span className="absolute left-3 top-2.5">$</span>
+            <span className="absolute left-3 top-2.5 text-sm">Rs.</span>
             <Input
               id="amount"
               placeholder="0.00"
               type="number"
               step="0.01"
               min="0.01"
-              className="pl-7"
+              className="pl-7 ml-2"
               {...register("amount")}
             />
           </div>
@@ -292,9 +292,9 @@ export default function SettlementForm({ entityType, entityData, onSuccess }) {
                       }`}
                     >
                       {isOwing
-                        ? `They owe you $${Math.abs(member.netBalance).toFixed(2)}`
+                        ? `They owe you Rs.${Math.abs(member.netBalance).toFixed(2)}`
                         : isOwed
-                          ? `You owe $${Math.abs(member.netBalance).toFixed(2)}`
+                          ? `You owe Rs.${Math.abs(member.netBalance).toFixed(2)}`
                           : "Settled up"}
                     </div>
                   </div>
@@ -385,7 +385,7 @@ export default function SettlementForm({ entityType, entityData, onSuccess }) {
             <div className="space-y-2">
               <Label htmlFor="amount">Amount</Label>
               <div className="relative">
-                <span className="absolute left-3 top-2.5">$</span>
+                <span className="absolute left-3 top-2.5">Rs.</span>
                 <Input
                   id="amount"
                   placeholder="0.00"
